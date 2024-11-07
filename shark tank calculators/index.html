@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Financial Calculators</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>SHARK TANK CALCULATOR</h1>
+    <div class="calculator-container">
+        <!-- Sales Tax Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">Sales Tax Calculator</div>
+            <p class="example">Sales tax is calculated by multiplying the sales amount by the tax rate. Example: ₹10,000 with 18% tax gives ₹1,800 tax.</p>
+            <label for="salesAmount">Sales Amount:</label>
+            <input type="number" id="salesAmount" placeholder="Enter sales amount" min="0">
+            <label for="taxRate">Tax Rate (%):</label>
+            <input type="number" id="taxRate" placeholder="Enter tax rate" min="0">
+            <button onclick="calculateSalesTax()">Calculate Sales Tax</button>
+            <p class="result" id="salesTaxResult">Sales Tax Result: N/A</p>
+        </div>
+
+        <!-- Profit Margin Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">Profit Margin Calculator</div>
+            <div class="example">Example: If your revenue is ₹50,000 and the cost is ₹30,000, the profit margin will be 40%.</div>
+            <label for="revenue">Revenue:</label>
+            <input type="number" id="revenue" placeholder="Enter revenue" min="0">
+            <label for="cost">Cost:</label>
+            <input type="number" id="cost" placeholder="Enter cost" min="0">
+            <button onclick="calculateProfitMargin()">Calculate Profit Margin</button>
+            <p class="result" id="profitMarginResult">Profit Margin Result: N/A</p>
+        </div>
+
+        <!-- Customer Acquisition Cost (CAC) Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">Customer Acquisition Cost (CAC) Calculator</div>
+            <div class="example">Example: If you spent ₹15,000 on marketing and acquired 150 new customers, your CAC is ₹100.</div>
+            <label for="totalCost">Total Marketing Cost:</label>
+            <input type="number" id="totalCost" placeholder="Enter total marketing cost" min="0">
+            <label for="newCustomers">New Customers Acquired:</label>
+            <input type="number" id="newCustomers" placeholder="Enter number of new customers" min="0">
+            <button onclick="calculateCAC()">Calculate CAC</button>
+            <p class="result" id="cacResult">CAC Result: N/A</p>
+        </div>
+
+        <!-- Break-even Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">Break-even Point Calculator</div>
+            <div class="example">Example: If your fixed cost is ₹50,000, the price per unit is ₹200, and the variable cost per unit is ₹50, your break-even point will be 500 units.</div>
+            <label for="fixedCost">Fixed Cost:</label>
+            <input type="number" id="fixedCost" placeholder="Enter fixed cost" min="0">
+            <label for="pricePerUnit">Price Per Unit:</label>
+            <input type="number" id="pricePerUnit" placeholder="Enter price per unit" min="0">
+            <label for="variableCostPerUnit">Variable Cost Per Unit:</label>
+            <input type="number" id="variableCostPerUnit" placeholder="Enter variable cost per unit" min="0">
+            <button onclick="calculateBreakEven()">Calculate Break-even Point</button>
+            <p class="result" id="breakEvenResult">Break-even Result: N/A</p>
+        </div>
+
+        <!-- VAT Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">VAT Calculator</div>
+            <div class="example">Example: If the sale amount is ₹10,000 and the VAT rate is 18%, VAT will be ₹1,800.</div>
+            <label for="saleAmount">Sale Amount:</label>
+            <input type="number" id="saleAmount" placeholder="Enter sale amount" min="0">
+            <label for="vatRate">VAT Rate (%):</label>
+            <input type="number" id="vatRate" placeholder="Enter VAT rate" min="0">
+            <button onclick="calculateVAT()">Calculate VAT</button>
+            <p class="result" id="vatResult">VAT Result: N/A</p>
+        </div>
+
+        <!-- Lifetime Value (LTV) Calculator Card -->
+        <div class="calculator-card">
+            <div class="section-heading">Lifetime Value (LTV) Calculator</div>
+            <div class="example">Example: If your average revenue per user (ARPU) is ₹500, and the customer retention rate is 80%, the LTV will be ₹4,000.</div>
+            <label for="arpu">Average Revenue Per User (ARPU):</label>
+            <input type="number" id="arpu" placeholder="Enter ARPU" min="0">
+            <label for="retentionRate">Retention Rate (%):</label>
+            <input type="number" id="retentionRate" placeholder="Enter retention rate" min="0">
+            <button onclick="calculateLTV()">Calculate LTV</button>
+            <p class="result" id="ltvResult">LTV Result: N/A</p>
+        </div>
+    </div>
+
+    <!-- Download PDF Button -->
+    <div class="calculator-container">
+        <button class="download-btn" onclick="downloadPDF()">Print Calculations</button>
+        <script src="script.js"></script>
+    </div>
+
+</body>
+</html>
