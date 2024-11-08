@@ -1,319 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ATV | Great Projects </title>
-
-  <!-- Custom Google fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300,700' rel='stylesheet' type='text/css'>
-  <link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,600" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- Bootstrap CSS Style -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-
-  <!-- Template CSS Style -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Animate CSS  -->
-  <link rel="stylesheet" href="assets/css/animate.css">
-
-  <!-- FontAwesome 4.3.0 Icons  -->
-  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-  <!-- et line font  -->
-  <link rel="stylesheet" href="assets/css/et-line-font/style.css">
-
-  <!-- BXslider CSS  -->
-  <link rel="stylesheet" href="assets/css/bxslider/jquery.bxslider.css">
-
-  <!-- Owl Carousel CSS Style -->
-  <link rel="stylesheet" href="assets/css/owl-carousel/owl.carousel.css">
-  <link rel="stylesheet" href="assets/css/owl-carousel/owl.theme.css">
-  <link rel="stylesheet" href="assets/css/owl-carousel/owl.transitions.css">
-
-  <!-- Magnific-Popup CSS Style -->
-  <link rel="stylesheet" href="assets/css/magnific-popup/magnific-popup.css">
-	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Fitness & Nutrition Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <a href="https://github.com/Ayushkumarpatel-AKP" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="profile">
+                <img src="https://th.bing.com/th/id/OIP.wDrGygU4WDK9CpssMpJaswHaHa?rs=1&pid=ImgDetMain" alt="GitHub Logo" style="width: 40px; height: 40px;"> <!-- Replace with your GitHub logo path -->
+                <span>AKP</span> <!-- Replace with your name -->
+            </div>
+        </a>
+    </div>
 
-  <!-- Preload the Whole Page -->
-  <div id="preloader">      
-    <div id="loading-animation">&nbsp;</div>
-  </div>
+    <h1>Personalized Fitness & Nutrition Tracker</h1>
+    <p>Enter your details below to receive a customized fitness and diet plan tailored to your body metrics and health conditions.</p>
 
-  <!-- Navbar -->
-  <header class="header">
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <img src="/assets/images/ATP white.jpeg" id="logo-bhaika" width="70vw">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-nav">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <!-- User Input Form -->
+    <div class="section">
+        <h2>Input Your Details</h2>
+        <label>Age: <input type="number" id="age" placeholder="Enter your age" required min="1"></label>
+        <label>Weight (kg): <input type="number" id="weight" placeholder="Enter your weight in kg" required min="1"></label>
+        <label>Height (cm): <input type="number" id="height" placeholder="Enter your height in cm" required min="1"></label>
+        
+        <label>Gender:
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </label>
+        
+        <label>Activity Level:
+            <select id="activityLevel">
+                <option value="sedentary">Sedentary (little to no exercise)</option>
+                <option value="light">Lightly active (1-3 days a week)</option>
+                <option value="moderate">Moderately active (3-5 days a week)</option>
+                <option value="active">Active (6-7 days a week)</option>
+            </select>
+        </label>
+        
+        <label>Any Disease:
+            <select id="disease">
+                <option value="none">None</option>
+                <option value="diabetes">Diabetes</option>
+                <option value="hypertension">Hypertension</option>
+                <option value="cholesterol">High Cholesterol</option>
+            </select>
+        </label>
+
+        <button onclick="calculateRecommendations()">Get Your Plan</button>
+    </div>
+
+    <!-- Output Suggestions -->
+    <div class="section" id="suggestions" style="display: none;">
+        <h2>Your Personalized Plan</h2>
+        <div class="suggestion-container">
+            <p id="calorieRecommendation"></p>
+            <p id="workoutRecommendation"></p>
+            <p id="avoidanceRecommendation"></p>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navigation-nav">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a class="section-scroll" href="#wrapper">Home</a></li>
-            <li><a href="#landing-offer">About</a></li>
-            <li><a href="#Products">Projects</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container -->
-    </nav>
-  </header>
-  <!-- End Navbar -->
+    </div>
 
-  <div id="wrapper">
+    <!-- Additional Health Tips -->
+    <div class="section" id="healthTips" style="display: none;">
+        <h2>General Health Tips</h2>
+        <ul>
+            <li><strong>Stay Hydrated:</strong> Drink at least 2-3 liters of water per day.</li>
+            <li><strong>Regular Sleep:</strong> Aim for 7-8 hours of sleep every night to support recovery.</li>
+            <li><strong>Balanced Diet:</strong> Include a variety of fruits, vegetables, and proteins in your diet.</li>
+            <li><strong>Consistency:</strong> Stick to your exercise and diet plan for long-term benefits.</li>
+        </ul>
+    </div>
 
-  <!-- Hero
-  ================================================== -->
-    <section>
-      <div id="hero-section" class="landing-hero" data-stellar-background-ratio="0">
-        <div class="hero-content">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-
-                <div class="hero-text">
-                  <div class="herolider">
-                    <ul class="caption-slides">
-
-                      <li class="caption">
-                        <h1>Great Projects Requires 
-                        </h1>
-                        <div class="div-line"></div>
-                        <p class="hero">From BMR APP to tic tac toe and many interesting projects</p>
-                      </li>
-                      <li class="caption">
-                        <h1>Great Intelligence(Artificial)!</h1>
-                        <div class="div-line"></div>
-			
-                        <p class="hero">GPT hahah we dont even what that shit is we just use😭</p>
-                      </li>
-
-                      <li class="caption">
-                        <h1>Nice interactive projects</h1>
-                        <div class="div-line"></div>
-                        <p class="hero">🎲</p>
-                      </li>
-
-                    </ul>
-                  </div> <!-- end herolider -->
-                </div> <!-- end hero-text -->
-
-                <div class="hero-btn">
-                  <a href="#landing-offer" class="btn btn-clean">Read more</a>
-                </div> <!-- end hero-btn -->
-
-              </div> <!-- end col-md-6 -->
-            </div> <!-- end row -->
-          </div> <!-- End container -->
-        </div> <!-- End hero-content -->
-      </div> <!-- End hero-section -->
-    </section>
-    <!-- End hero section -->
-
-    <!-- Offer
-    ================================================== -->
-    <section>
-      <div id="landing-offer" class="pad-sec">
-        <div class="container">
-          <div class="title-section big-title-sec animated out" data-animation="fadeInUp" data-delay="0">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <marquee behavior="" direction="">
-                  <H5 style="color: red;">✨WE WILL UPLOAD OUR NEW PROJECTS HERE. SO, STAY TUNED !✨</H5>
-                </marquee>
-                <br><br>
-                <h2 class="big-title">Some information about us</h2>
-                <h1 class="big-subtitle">PLAY EXISTING GAMES &amp; USE OUR TOOLS IN YOUR DAILY LIFE</h1>
-                <hr>
-                <p class="about-text" ><strong>
-                Group of friends (Ayush(AKP), Prashant, Vaibhav) working on their projects
-                   on diwali break!🎇
-                </strong>
-                </p>
-                  
-              </div>
-            </div> <!-- End row -->
-          </div> <!-- end title-section -->
-
-       <hr>
-    <!-- Features services
-    ================================================== -->
-    <section>
-      <div id="Products" class="pad-sec">
-        <div class="container">
-          <div class="title-section text-center animated out" data-animation="fadeInUp" data-delay="0">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <h2>|PROJECTS|</h2>
-                <hr>
-
-                <hr><br><br>
-		
-                <h4 class="SPECIAL">🌧WEATHER APP☀</h4>
-                <a href="https://weathertv.netlify.app/" target="_blank"><button class="custom-btn btn-15">GROUP PROJECT</button></a>
-                <hr><br><br>
-		
-		<h4>RIDDLE APP🧠</h4>
-                <a href="https://riddlesapp.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-		<h4>JOKES APP💀</h4>
-                <a href="https://jokesapp9526.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-		      
-		<h4>AIR QUALITY INDEX🚭</h4>
-                <a href="https://aqi9526.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-		      
-                <h4>TIC TAC TOE🎯</h4>
-                <a href="/Tic-Tac-Toe/index.html" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>MEME APP😁</h4>
-                <a href="https://stickartly.vercel.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>FUNNY GIFS API😁</h4>
-                <a href="https://meme-website-vaibhav.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>DOGS FINDER API🐕</h4>
-                <a href="https://dog-viewer-app.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>QR CODE GENERATOR📱</h4>
-                <a href="https://qr-code-generator-vaibhav.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>MOLAR MASS CALCULATOR👨‍🔬</h4>
-                <a href="https://molarmass.netlify.app/" target="_blank"><button class="custom-btn btn-9">BY VAIBHAV</button></a>
-                <hr><br><br>
-
-                <h4>BASKET GAME🧺</h4>
-                <a href="/BASKET GAME/game.html" target="_blank"><button class="custom-btn btn-9">BY AKP</button></a>
-                <hr><br><br>
-		      
-		<h4>shark tank calculators</h4>
-                <a href="/shark tank calculators/index.html" target="_blank"><button class="custom-btn btn-9">BY AKP</button></a>
-                <hr><br><br>
-
-                <h4>BMR APP💪</h4>
-                <a href="/BMR app/index.html" target="_blank"><button class="custom-btn btn-9">BY AKP</button></a>
-                <hr><br><br>
-
-                <h4>ROASTING MACHINE😭</h4>
-                <a href="/roaster master/index.html" target="_blank"><button class="custom-btn btn-9">BY AKP</button></a>
-                <hr><br><br>
-
-		<h4>invoice&billing maker💸</h4>
-		<a href="/invoice maker/index.HTML" target="_blank"><button class="custom-btn btn-9">BY AKP</button></a>
-		<hr><br><br>
-		      
-                <h4>CARD GAME♠</h4>
-                <a href="/Card game/index.html" target="_blank"><button class="custom-btn btn-9">BY PRASHANT</button></a>
-                <hr><br><br>
-
-                <h4>URL SAVER🔗</h4>
-                <a href="/Linksapp/index.html" target="_blank"><button class="custom-btn btn-9">BY PRASHANT</button></a>
-                <hr><br><br>
-
-                <h4>SNIPPET MAKER👨‍💻</h4>
-                <a href="/Snippet maker/index.html" target="_blank"><button class="custom-btn btn-9">BY PRASHANT</button></a>
-                <hr><br><br>
-
-                <h4>NO. GUESSING GAME🎯</h4>
-                <a href="/guessname/index.html" target="_blank"><button class="custom-btn btn-9">BY PRASHANT</button></a>
-                <hr><br><br>
-
-                <h4>SCALE CHANGER🌡</h4>
-                <a href="/thermometer/index.html" target="_blank"><button class="custom-btn btn-9">BY PRASHANT</button></a>
-                <hr><br><br>
-
-
-              </div> <!-- edn col-sm-8 -->
-            </div> <!-- End row -->
-          </div> <!-- end title-section -->
-          <div class="row">
-            <div class="col-md-3 without-padding">
-              <div class="left-features-services">
-                <ul class="features-list">
-
-                 
-                      </div>
-                    </div>
-                  </li>
-                </ul> <!-- end features-list -->
-              </div>
-            </div> <!-- end col-md-3 -->
-
-          </div> <!-- end row -->
-        </div> <!-- end container -->
-      </div>
-    </section>
-    <!-- End features-section -->
-
- 
-    <!-- Footer
-    ================================================== -->
-    <footer>
-      <div id="footer-section" class="text-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <p class="copyright">
-                &copy; Created By Vaibhav Sharma
-              </p>
-            </div> <!-- End col-sm-8 -->
-          </div> <!-- End row -->
-        </div> <!-- End container -->
-      </div> <!-- End footer-section  -->
-    </footer>
-    <!-- End footer -->
-
-  </div> <!-- End wrapper -->
-
-  <!-- Back-to-top
-  ================================================== -->
-  <div class="back-to-top">
-    <i class="fa fa-angle-up fa-3x"></i>
-  </div> <!-- end back-to-top -->
-
-  <!-- JS libraries and scripts -->
-  <script src="assets/js/jquery-1.11.3.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-  <script src="assets/js/jquery.appear.min.js"></script>
-  <script src="assets/js/jquery.bxslider.min.js"></script>
-  <script src="assets/js/jquery.owl.carousel.min.js"></script>
-  <script src="assets/js/jquery.countTo.js"></script>
-  <script src="assets/js/jquery.easing.1.3.js"></script>
-  <script src="assets/js/jquery.imagesloaded.min.js"></script>
-  <script src="assets/js/jquery.isotope.js"></script>
-  <script src="assets/js/jquery.placeholder.js"></script>
-  <script src="assets/js/jquery.smoothscroll.js"></script>
-  <script src="assets/js/jquery.stellar.min.js"></script>
-  <script src="assets/js/jquery.waypoints.js"></script>
-  <script src="assets/js/jquery.fitvids.js"></script>
-  <script src="assets/js/jquery.magnific-popup.min.js"></script>
-  <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-  <script src="assets/js/jquery.countdown.js"></script>
-  <script src="assets/js/jquery.navbar-scroll.js"></script>
-  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <script src="assets/js/jquery.gmaps.js"></script>
-  <script src="assets/js/main.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
