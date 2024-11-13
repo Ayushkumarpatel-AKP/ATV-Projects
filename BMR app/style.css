@@ -1,6 +1,10 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #0e1e3f; /* Dark blue background */
+    background-image: url('https://sleeklens.com/wp-content/uploads/2018/02/pexels-photo-791763.jpeg'); /* Set background image */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Fixed background */
+    opacity: 0.8; /* Slightly reduced opacity for the body */
     color: #e0e0e0; /* Keep text color light for contrast */
     max-width: 800px;
     margin: 0 auto;
@@ -16,17 +20,23 @@ h1, h2, h3 {
 }
 
 .section {
-    background-color: #1e2a4d; /* Medium blue for sections */
+    background-color: rgba(30, 42, 77, 0.9); /* Increased opacity for sections */
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 15px; /* More rounded corners for a modern card effect */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow for depth */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    position: relative; /* Set position relative for pseudo-element */
 }
 
 .section:hover {
     transform: translateY(-5px); /* Elevate card on hover */
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+}
+
+.label, .section h2, .section p {
+    position: relative; /* Ensure text is on top of background */
+    z-index: 1; /* Bring text in front */
 }
 
 label, p {
@@ -42,7 +52,7 @@ input, select {
     margin-bottom: 15px;
     border: 1px solid #444; /* Keep border color dark */
     border-radius: 10px; /* More rounded for inputs */
-    background-color: #2b3b5c; /* Light blue for inputs */
+    background-color: #051637; /* Light blue for inputs */
     color: #ffd700; /* Yellow text color for inputs */
     font-size: 1em;
     transition: border-color 0.3s; /* Transition for input focus */
@@ -95,4 +105,34 @@ ul li {
     button {
         font-size: 1em; /* Adjust button font size for smaller screens */
     }
+}
+
+/* Adding a bluish overlay */
+body::after {
+    content: '';
+    position: fixed; /* Fixed overlay */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 255, 0.1); /* Bluish filter with low opacity */
+    z-index: -1; /* Behind everything */
+}
+.profile {
+    position: absolute; /* Positioning the profile in the top right corner */
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    width: 40px; /* Adjust the size of the GitHub logo */
+    height: auto;
+    margin-right: 10px; /* Space between logo and name */
+}
+
+.profile span {
+    color: #178bff; /* Yellow color for the name */
+    font-weight: bold; /* Bold text for the name */
 }
