@@ -7,6 +7,12 @@ function calculateRecommendations() {
     const activityLevel = document.getElementById("activityLevel").value; // Activity level ko variable me store kar rahe hain
     const disease = document.getElementById("disease").value; // Disease ko variable me store kar rahe hain
 
+    // Input validation check
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || !gender || !activityLevel || !disease) {
+        alert("Please fill in all fields before proceeding."); // Agar koi field khali hai toh user ko alert karo
+        return; // Function ko yahin rok do
+    }
+
     // BMR (Basal Metabolic Rate) calculation karna
     let bmr;
     if (gender === "male") { // Agar male hai toh
@@ -83,4 +89,3 @@ function calculateRecommendations() {
     document.getElementById("suggestions").style.display = "block"; // Suggestions section dikhana
     document.getElementById("healthTips").style.display = "block"; // Health tips section dikhana
 }
-// mene jo bhi comment likha mene isliye likha hai kyuki agr koi bhi fresher aaye to comment dekh kr smjh ske aur acha sa logic build kr ske
